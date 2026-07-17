@@ -9,6 +9,7 @@
     display: flex;
     height: 100vh;
     align-items: center;
+    position: relative;
 }
 
 .login-info {
@@ -56,7 +57,7 @@
     font-size: 0.5rem;
     font-weight: 800;
     letter-spacing: 2px;
-    box-shadow: 2px 2px 10px rgb(177, 177, 177);
+    box-shadow: 1px 1px 10px rgb(177, 177, 177);
 }
 
 .login-info button:hover {
@@ -132,6 +133,7 @@
     background-color: rgba(0, 0, 192, 0.884);
 }
 
+
 @media (max-width: 650px) {
     .login-grid {
         grid-template-columns: 1fr;
@@ -158,5 +160,8 @@
 }
 .login-bg {
     height: 100%;
+}
+.login-info button{
+    margin-top: 20px;
 }
 }

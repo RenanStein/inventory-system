@@ -15,17 +15,28 @@
                     <p>Faça login para acessar sua conta.</p>
                 </div>
                 <div class="login-info-button">
-                    <button>Não tenho conta</button>
+                    <button data-login="registrar">Não tenho conta</button>
                 </div>
             </div>
             <div class="login-form">
                 <h3>Acesse sua conta</h3>
                 <p>Informe seus dados</p>
-                <input type="text" placeholder="NOME">
-                <input type="password" name="" id="" placeholder="SENHA">
-                <button>Entrar</button>
+                <input type="text" placeholder="NOME" id="nome">
+                <input type="password" name="senha" id="senha" placeholder="SENHA">
+                <button data-login="entrar">Entrar</button>
             </div>
         </section>
+
+        <div class="login-erro-bg" id="container_erro">
+            <div class="login-erro">
+                <p class="login-erro-mensagem" id="mensagem_erro">Erro</p>
+                <p class="login-erro-aviso">Clique em qualquer lugar para fechar.</p>
+            </div>
+        </div>
     </main>
+
+    
+
+    <script type="module" src="js/script.js"></script>
 </body>
 </html>
