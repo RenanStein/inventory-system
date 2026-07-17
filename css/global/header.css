@@ -34,6 +34,7 @@
     color: white;
     font-size: 0.8rem;
     color: #F59E0B;
+    margin-right: 20px;
 }
 
 .header-list li a:hover {
@@ -47,6 +48,7 @@
     height: 2px;
     background-color: #F59E0B;
     transition: 0.3s width;
+    border-radius: 10px;
 }
 
 .header-list li a:hover::after {
