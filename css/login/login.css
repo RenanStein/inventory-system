@@ -14,12 +14,21 @@
 .login-info {
     background-color: rgb(0, 0, 192);
     padding: 30px;
-    align-content: center;
     color: white;
     border-top-left-radius: 20px;
     border-bottom-left-radius: 20px;
     box-shadow: 2px 2px 10px rgb(177, 177, 177);
     margin-left: 20px;
+    display: grid;
+    grid-template-rows: 1fr auto;
+}
+
+.login-info-dados {
+    align-content: center;
+}
+
+.login-info-button {
+    justify-items: center;
 }
 
 .login-info h2 {
@@ -33,6 +42,26 @@
     padding: 0px 10px;
     font-size: 1rem;
     font-weight: 600;
+    margin-bottom: 20px;
+}
+
+.login-info button {
+    display: block;
+    width: 150px;
+    padding: 10px 5px;
+    border-radius: 20px;
+    background-color: white;
+    color: rgb(0, 0, 192);
+    text-transform: uppercase;
+    font-size: 0.5rem;
+    font-weight: 800;
+    letter-spacing: 2px;
+    box-shadow: 2px 2px 10px rgb(177, 177, 177);
+}
+
+.login-info button:hover {
+    box-shadow: 0px 0px 0px rgb(177, 177, 177);
+    background-color: rgba(255, 255, 255, 0.849);
 }
 
 
@@ -114,6 +143,8 @@
     border-bottom-left-radius: 0px;
     box-shadow: 2px 2px 10px rgb(177, 177, 177);
     margin-left: 0px;
+}
+.login-info-dados {
     justify-items: center;
 }
 .login-form {
