@@ -5,7 +5,14 @@ export default function initUserHeader() {
         localStorage.getItem('usuarioLogado')
     );
 
+    console.log(window.location.pathname)
+    if(window.location.pathname != '/index.html'){
+     if(user.situacao !== 'logado') {
+         window.location.href = './index.html';
+     }
+    }
+
     if(textUser){
-    textUser.innerText = user.usuario;
+        textUser.innerText = user.usuario;
     }
 }

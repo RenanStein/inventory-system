@@ -4,7 +4,7 @@ export default function buttonRegister() {
     function registrar() {
             const acessoUsuario = {
                 usuario: 'user',
-                situacao: 'sem login'
+                situacao: 'logado'
             }
 
             localStorage.setItem(
