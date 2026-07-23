@@ -12,4 +12,10 @@
 @import 'products/products-modal.css';
 
 
+/* pagina de lançamentos */
+@import 'releases/releases.css';
+
+/* pagina de estoque */
+@import 'inventory/inventory.css';
+
 @import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
