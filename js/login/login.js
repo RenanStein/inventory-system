@@ -21,7 +21,7 @@ export default function initLogin(){
             }
 
             localStorage.setItem(
-                'usuarioLogado',
+                'dadosUsuario',
                 JSON.stringify(acessoUsuario)
             );
 

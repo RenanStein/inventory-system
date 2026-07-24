@@ -8,7 +8,7 @@ export default function buttonRegister() {
             }
 
             localStorage.setItem(
-                'usuarioLogado',
+                'dadosUsuario',
                 JSON.stringify(acessoUsuario)
             );
 

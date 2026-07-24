@@ -1,8 +1,8 @@
 export default function initUserHeader() {
     const textUser = document.querySelector('[data-user="usuario"]');
 
-    if(localStorage.usuarioLogado){
-        const user = JSON.parse(localStorage.getItem('usuarioLogado'));
+    if(localStorage.dadosUsuario){
+        const user = JSON.parse(localStorage.getItem('dadosUsuario'));
 
         if (user && user.situacao === 'logado') {
         console.log('ok');

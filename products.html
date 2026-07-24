@@ -28,10 +28,9 @@
                 <h2>Produtos</h2>
                 <button id="buttonCreateProduct">+</button>
             </div>
+            <p class="products-not-exists">Não existe produtos criados.</p>
             <div class="products-item">
                 <ul class="products-list">
-                    <li>Caixa</li>
-                    <li>Papel</li>
                 </ul>
             </div>
             <div class="products-description-bg">
@@ -63,19 +62,19 @@
                 <h3>Cadastrar novo produto</h3>
             <div class="products-modal-item">
                 <label for="nome">Nome do produto</label>
-                <input type="text" name="nome" placeholder="Produto" required>
+                <input type="text" name="nome" placeholder="Produto" required id="nomeProduto">
             </div>
             <div class="products-modal-item">
                 <label for="descricao">Descrição do Produto</label>
-                <input type="text" name="descricao" placeholder="Descrição do produto" required>
+                <input type="text" name="descricao" placeholder="Descrição do produto" required id="descricaoProduto">
             </div>
             <div class="products-modal-item">
                 <label for="custo">Custo Médio</label>
-                <input type="number" name="custo" placeholder="Custo" required>
+                <input type="number" name="custo" placeholder="Custo" required id="custoProduto">
             </div>
             <div class="products-modal-item">
                 <label for="tipo">Tipo</label>
-                <input type="text" name="tipo" placeholder="Tipo" required>
+                <input type="text" name="tipo" placeholder="Tipo" required id="tipoProduto">
             </div>
             <button class="products-modal-confir">Confirmar</button>
             <button class="products-modal-cance">Cancelar</button>
