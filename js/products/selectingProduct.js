@@ -1,6 +1,8 @@
 export default function initSelectingProduct(){
     const listaProdutos = document.querySelector('.products-list');
     const listaProdutosItens = [...document.querySelectorAll('.products-list li')];
+    const dadosProdutos = JSON.parse(localStorage.getItem('dadosProdutos'));
+
 
     if(listaProdutos) {
         listaProdutosItens.forEach((e) =>{
@@ -8,7 +10,10 @@ export default function initSelectingProduct(){
         })
 
         function selecionarProduto(element){
-            console.log(element.target.dataset.id)
+            const idItem = element.target.dataset.id;
+
+            if(dadosProdutos){}
+
         }
 
 

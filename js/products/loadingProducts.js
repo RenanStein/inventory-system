@@ -29,5 +29,4 @@ export default function initLoadingProducts() {
         divProdutoDescricao.style.display = 'none';
         paragNotExist.style.display = 'block';
     }
-    console.log(dadosUser)
 }

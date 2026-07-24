@@ -8,9 +8,12 @@ export default class Produto {
         }
 
         criarID(produtos){
+            if (produtos.length === 0) {
+                this.id = 1;
+                return;
+            }
             const maiorId = Math.max(...produtos.map(produto => produto.id));
             this.id = maiorId + 1;
-            console.log(produtos)
         }
 
         armazenarProduto(produtos){
@@ -19,9 +22,17 @@ export default class Produto {
             this.usuario = dadosUser.usuario;
             this.situacao = dadosUser.situacao;
 
+            
+            const dadosProdutos = JSON.parse(localStorage.getItem("dadosProdutos")) || [];
+
+            this.criarID(dadosProdutos);
+
+            dadosProdutos.push(this);
+
             localStorage.setItem(
-                'dadosProdutos',
-                JSON.stringify(produtos)
+                "dadosProdutos",
+            JSON.stringify(dadosProdutos)
             );
-        }
+            }
+            
     }

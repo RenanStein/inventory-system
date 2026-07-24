@@ -41,7 +41,7 @@ export default function initCreateProducts() {
             const novoProduto = new Produto(inputNome.value, inputDescricao.value, inputCusto.value, inputTipo.value);
             produtos.push(novoProduto)
             
-            novoProduto.criarID(produtos)
+            //novoProduto.criarID(produtos)
             novoProduto.armazenarProduto(produtos)
 
             renderizarProduto(novoProduto);
