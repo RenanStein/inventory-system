@@ -34,5 +34,12 @@ export default class Produto {
             JSON.stringify(dadosProdutos)
             );
             }
+
+        dataCadastro(){
+            const dataCadastro = new Date().toISOString();
+            const dataFormatada = new Date(dataCadastro).toLocaleString("pt-BR");
+            this.data_hora_cadastro = dataCadastro;
+            this.data_hora_formatada = dataFormatada;
+        }
             
     }

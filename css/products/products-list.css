@@ -83,3 +83,19 @@
     font-weight: 400;
     margin-left: 20px;
 }
+
+.ativoDesc {
+    color: #F59E0B !important;
+}
+
+.ativoDesc::after {
+    content: '';
+    display: block;
+    width: 3px;
+    height: 80% !important;
+    background-color: #F59E0B;
+    position: absolute;
+    right: -20px;
+    top: 5px;
+    border-radius: 10px;
+}

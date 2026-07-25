@@ -20,7 +20,7 @@ export default function initCreateProducts() {
     buttonCancelarModal.addEventListener('click', cancelarModal);
 
 
-    
+    //criar produto
     const buttonConfirmModal = document.querySelector('.products-modal-confir');
     const inputNome = document.querySelector('#nomeProduto');
     const inputDescricao = document.querySelector('#descricaoProduto');
@@ -40,13 +40,14 @@ export default function initCreateProducts() {
         if (inputNome.value != '' && inputDescricao.value != '' && inputCusto.value != '' && inputTipo.value != '') {
             const novoProduto = new Produto(inputNome.value, inputDescricao.value, inputCusto.value, inputTipo.value);
             produtos.push(novoProduto)
-            
             //novoProduto.criarID(produtos)
-            novoProduto.armazenarProduto(produtos)
+            novoProduto.dataCadastro();
+            novoProduto.armazenarProduto(produtos);
 
             renderizarProduto(novoProduto);
 
             modalCreate.style.display = 'none';
+            window.location.reload();
         } else {
             window.alert("Preencha todos os campos para cadastrar um produto.")
         }

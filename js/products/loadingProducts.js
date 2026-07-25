@@ -23,7 +23,7 @@ export default function initLoadingProducts() {
             } else {
                 console.log('teste')
             }
-        });
+        })
     } else {
         divListaProdutos.style.display = 'none';
         divProdutoDescricao.style.display = 'none';
