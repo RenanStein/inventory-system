@@ -47,7 +47,6 @@ export default function initCreateProducts() {
             renderizarProduto(novoProduto);
 
             modalCreate.style.display = 'none';
-            window.location.reload();
         } else {
             window.alert("Preencha todos os campos para cadastrar um produto.")
         }

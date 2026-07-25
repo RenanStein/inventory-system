@@ -10,38 +10,43 @@ export default function initSelectingProduct(){
 
 
     if(listaProdutos) {
-        listaProdutosItens.forEach((li) => {
-        li.addEventListener("click", () => {
-            const ativo = li.classList.contains("ativoDesc");
+       listaProdutos.addEventListener("click", (event) => {
+        // Procura o <li> mais próximo do elemento clicado
+        const li = event.target.closest("li");
 
-            listaProdutosItens.forEach((item) => {
+        // Se clicou fora de um <li>, não faz nada
+        if (!li || !listaProdutos.contains(li)) return;
+
+        const ativo = li.classList.contains("ativoDesc");
+
+        // Remove a seleção de todos os itens
+        listaProdutos.querySelectorAll("li").forEach((item) => {
             item.classList.remove("ativoDesc");
-            divDescricao.classList.remove("divAtivoDesc");
-            });
+        });
 
-            if (!ativo) {
+        divDescricao.classList.remove("divAtivoDesc");
+
+        // Se o item não estava ativo, ativa
+        if (!ativo) {
             li.classList.add("ativoDesc");
             divDescricao.classList.add("divAtivoDesc");
             selecionarProduto(li);
-            }
-        });
-        });
+        }
+    });
 
 
 
         function selecionarProduto(element){
             const idItem = element.dataset.id;
-            const li = document.querySelector(`[data-id="${idItem}"]`)
-            const li2 = element;
 
-            dadosProdutos.forEach(e => {
-                if(e.id == idItem){
-                    spanDescricao.innerText = e.descricao;
-                    spanCusto.innerText = e.custo;
-                    spanTipo.innerText = e.tipo;
-                    spanData.innerText = e.data_hora_formatada;
-                }
-            })
+            const produto = dadosProdutos.find((p) => p.id == idItem);
+
+            if (!produto) return;
+
+            spanDescricao.innerText = produto.descricao;
+            spanCusto.innerText = produto.custo;
+            spanTipo.innerText = produto.tipo;
+            spanData.innerText = produto.data_hora_formatada;
 
         }
 
