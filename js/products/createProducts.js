@@ -13,7 +13,7 @@ export default function initCreateProducts() {
 
 
     // function de fechar o modal - BOTÃO CANCELAR
-    const buttonCancelarModal = document.querySelector('.products-modal-cance');
+    const buttonCancelarModal = document.querySelector('#modalCance');
     function cancelarModal(){
         modalCreate.style.display = 'none';
     }
@@ -21,7 +21,7 @@ export default function initCreateProducts() {
 
 
     //criar produto
-    const buttonConfirmModal = document.querySelector('.products-modal-confir');
+    const buttonConfirmModal = document.querySelector('#modalConfirm');
     const inputNome = document.querySelector('#nomeProduto');
     const inputDescricao = document.querySelector('#descricaoProduto');
     const inputCusto = document.querySelector('#custoProduto');

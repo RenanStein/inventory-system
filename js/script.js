@@ -5,6 +5,7 @@ import initUserHeader from './header/header.js';
 import initCreateProducts from './products/createProducts.js';
 import initLoadingProducts from './products/loadingProducts.js';
 import initSelectingProduct from './products/selectingProduct.js';
+import initEditProduct from './products/editProduct.js';
 
 initLogin();
 initErr();
@@ -13,3 +14,4 @@ initUserHeader();
 initCreateProducts();
 initLoadingProducts();
 initSelectingProduct();
+initEditProduct();
