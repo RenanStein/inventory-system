@@ -1,3 +1,5 @@
+import { getEditando } from './state.js';
+
 export default function initSelectingProduct(){
     const listaProdutos = document.querySelector('.products-list');
     const listaProdutosItens = [...document.querySelectorAll('.products-list li')];
@@ -7,10 +9,14 @@ export default function initSelectingProduct(){
     const spanCusto = document.querySelector('#custo');
     const spanTipo = document.querySelector('#tipo');
     const spanData = document.querySelector('#dataCadastroProduto');
-
-
+    const spanNome = document.querySelector('#nomeId');
+    const spanID = document.querySelector('#produtoId');
+    console.log(getEditando())
+    
     if(listaProdutos) {
-       listaProdutos.addEventListener("click", (event) => {
+       listaProdutos.addEventListener("click", ativarSelecao);
+       function ativarSelecao() {
+        if(getEditando() == false){
         // Procura o <li> mais próximo do elemento clicado
         const li = event.target.closest("li");
 
@@ -32,11 +38,13 @@ export default function initSelectingProduct(){
             divDescricao.classList.add("divAtivoDesc");
             selecionarProduto(li);
         }
-    });
+        }
+    };
 
 
 
         function selecionarProduto(element){
+            console.log(element)
             const idItem = element.dataset.id;
 
             const produto = dadosProdutos.find((p) => p.id == idItem);
@@ -47,10 +55,11 @@ export default function initSelectingProduct(){
             spanCusto.innerText = produto.custo;
             spanTipo.innerText = produto.tipo;
             spanData.innerText = produto.data_hora_formatada;
-
+            spanNome.innerText = produto.nome;
+            spanID.innerText = produto.id;
         }
 
 
     }
-
+    
 }
