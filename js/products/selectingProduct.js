@@ -3,7 +3,6 @@ import { getEditando } from './state.js';
 export default function initSelectingProduct(){
     const listaProdutos = document.querySelector('.products-list');
     const listaProdutosItens = [...document.querySelectorAll('.products-list li')];
-    const dadosProdutos = JSON.parse(localStorage.getItem('dadosProdutos'));
     const divDescricao = document.querySelector('.products-description-bg');
     const spanDescricao = document.querySelector('#descricaoId');
     const spanCusto = document.querySelector('#custo');
@@ -45,6 +44,8 @@ export default function initSelectingProduct(){
 
         function selecionarProduto(element){
             console.log(element)
+            const dadosProdutos = JSON.parse(localStorage.getItem('dadosProdutos'));
+
             const idItem = element.dataset.id;
 
             const produto = dadosProdutos.find((p) => p.id == idItem);

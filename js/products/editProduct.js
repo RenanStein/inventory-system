@@ -49,11 +49,16 @@ export default function initEditProduct() {
 
 
     function confirmarAlteracao(){
+        const listaProdutos = [...document.querySelectorAll('.products-list li')];
+
         dadosProdutos.find(e => console.log(e))
         const inputs = [...document.querySelectorAll('input.products-description-input')];
         if(inputs){
+            const dadosProdutos = JSON.parse(localStorage.getItem('dadosProdutos'));
+
             const abc = inputs.map(e => {
                 const elementoPai = e.parentElement;
+                console.log(elementoPai)
 
                 const novoSpan = document.createElement('span');
                 novoSpan.textContent = e.value;
