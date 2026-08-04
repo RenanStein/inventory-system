@@ -26,13 +26,29 @@
 }
 
 .products-description-item {
-    color: black;
     display: block;
-    background-color: rgba(185, 185, 185, 0.507);
+    background-color: rgba(214, 214, 214, 0.507);
     border-radius: 10px;
     margin-top: 5px;
     padding: 15px;
     border: 2px solid rgba(185, 185, 185, 0.507);
+}
+.products-description-item span, .products-description-item input {
+    color: black;
+}
+
+
+.products-description-item-fixo {
+    display: block;
+    background-color: rgba(214, 214, 214, 0.507);
+    border-radius: 10px;
+    margin-top: 5px;
+    padding: 15px;
+    border: 2px solid rgba(214, 214, 214, 0.507);
+}
+
+.products-description-item-fixo p {
+    color: rgb(150, 149, 149);
 }
 
 .products-description-bg.divAtivoDesc {

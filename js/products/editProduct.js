@@ -42,28 +42,48 @@ export default function initEditProduct() {
 
         if (!liAtivo) return;
 
-        const produto = dadosProdutos.find(
-            p => p.id == liAtivo.dataset.id
-        );
+        const produto = dadosProdutos.map(p => {
+            if(p.id == liAtivo.dataset.id){
+                const inputDescricao = document.querySelector('#descricaoId input');
+                const inputCusto = document.querySelector('#custo input');
+                const inputTipo = document.querySelector('#tipo input');
+                const inputNome = document.querySelector('#nomeId input');
 
-        if (!produto) return;
+                const spanCusto = document.querySelector('#custo span');
+                const spanTipo = document.querySelector('#tipo span');
+                const spanDescricao = document.querySelector('#descricaoId span');
+                const spanNome = document.querySelector('#nomeId span');
+
+                p.nome = inputNome.value || spanNome.innerText;
+                p.descricao = inputDescricao.value || spanDescricao.innerText;
+                p.custo = inputCusto.value || spanCusto.innerText;
+                p.tipo = inputTipo.value || spanTipo.innerText;
+
+                spanCusto.innerText = p.custo || spanCusto.innerText;
+                spanNome.innerText = p.nome || spanNome.innerText;
+                spanTipo.innerText = p.tipo || spanTipo.innerText;
+                spanDescricao.innerText = p.descricao || spanDescricao.innerText;
+
+                return p;
+            } else {
+                return p;
+            }
+                
+            });
 
         itensDescricao.forEach(item => {
 
-            const span = item.querySelector('span');
-            const input = item.querySelector('input');
+             const span = item.querySelector('span');
+             const input = item.querySelector('input');
 
-            produto[input.dataset.produto] = input.value;
+             span.hidden = false;
+             input.hidden = true;
+         });
 
-            span.textContent = input.value;
-
-            span.hidden = false;
-            input.hidden = true;
-        });
-
+        console.log(produto)
         localStorage.setItem(
             'dadosProdutos',
-            JSON.stringify(dadosProdutos)
+            JSON.stringify(produto)
         );
 
         divButtons.style.display = 'none';
