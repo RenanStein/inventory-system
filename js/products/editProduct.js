@@ -1,82 +1,89 @@
 import { setEditando } from './state.js';
 
 export default function initEditProduct() {
-    const divDesc = [...document.querySelectorAll('.products-description-item')];
+    const itensDescricao = [...document.querySelectorAll('.products-description-item')];
     const divButtons = document.querySelector('.products-description-button');
 
-    let valorAntigo;
-    let valorNovo;
+    itensDescricao.forEach(item => {
+        item.addEventListener('click', () => {
 
-    divDesc.forEach((event) => {
-        event.addEventListener('click', (e) => {
-            const span = e.currentTarget.querySelector('span');
-            const datasetProduto = span.dataset.produto
-            if (span) {
-                const input = document.createElement('input');
+            const span = item.querySelector('span');
+            const input = item.querySelector('input');
 
-                input.dataset.produto = datasetProduto
-
-                input.classList.add('products-description-input');
-                e.currentTarget.classList.remove('products-description-item')
-                divButtons.style.display = 'block';
+            if (setEditando && span) {
+                    span.hidden = true;
+                    input.hidden = false;
+                
+                
 
                 input.value = span.textContent;
-                valorAntigo = span.textContent;
 
-                span.replaceWith(input);
+                divButtons.style.display = 'block';
                 setEditando(true);
 
                 input.focus();
                 input.select();
-
-
-                // input.addEventListener('blur', () => {
-                //     const novoSpan = document.createElement('span');
-                //     novoSpan.textContent = input.value;
-                //     e.currentTarget.classList.add('products-description-item');
-                //     // divButtons.style.display = 'none';
-                //     valorNovo = input.value;
-
-                //     input.replaceWith(novoSpan);
-                // });
+                
             }
         });
     });
 
     const buttonConfirm = document.querySelector('#buttonDescConfirm');
     const buttonCancel = document.querySelector('#buttonDescCance');
-    const dadosProdutos = JSON.parse(localStorage.getItem('dadosProdutos'));
-
-
-    function confirmarAlteracao(){
-        const listaProdutos = [...document.querySelectorAll('.products-list li')];
-
-        dadosProdutos.find(e => console.log(e))
-        const inputs = [...document.querySelectorAll('input.products-description-input')];
-        if(inputs){
-            const dadosProdutos = JSON.parse(localStorage.getItem('dadosProdutos'));
-
-            const abc = inputs.map(e => {
-                const elementoPai = e.parentElement;
-                console.log(elementoPai)
-
-                const novoSpan = document.createElement('span');
-                novoSpan.textContent = e.value;
-
-                elementoPai.classList.add('products-description-item')
-                e.classList.remove('products-description-input');
-
-                e.replaceWith(novoSpan);
-                setEditando(false);
-
-                return {
-                    teste: 'teste',
-                }
-            })
-            console.log(abc)
-        }
-        
-    }
 
     buttonConfirm.addEventListener('click', confirmarAlteracao);
+    buttonCancel.addEventListener('click', cancelarAlteracao);
+
+    function confirmarAlteracao() {
+
+        const dadosProdutos = JSON.parse(localStorage.getItem('dadosProdutos')) || [];
+
+        const liAtivo = document.querySelector('.products-list li.ativoDesc');
+
+        if (!liAtivo) return;
+
+        const produto = dadosProdutos.find(
+            p => p.id == liAtivo.dataset.id
+        );
+
+        if (!produto) return;
+
+        itensDescricao.forEach(item => {
+
+            const span = item.querySelector('span');
+            const input = item.querySelector('input');
+
+            produto[input.dataset.produto] = input.value;
+
+            span.textContent = input.value;
+
+            span.hidden = false;
+            input.hidden = true;
+        });
+
+        localStorage.setItem(
+            'dadosProdutos',
+            JSON.stringify(dadosProdutos)
+        );
+
+        divButtons.style.display = 'none';
+        setEditando(false);
+    }
+
+    function cancelarAlteracao() {
+
+        itensDescricao.forEach(item => {
+
+            const span = item.querySelector('span');
+            const input = item.querySelector('input');
+
+            input.value = span.textContent;
+
+            span.hidden = false;
+            input.hidden = true;
+        });
+
+        divButtons.style.display = 'none';
+        setEditando(false);
+    }
 }

@@ -4,12 +4,12 @@ export default function initSelectingProduct(){
     const listaProdutos = document.querySelector('.products-list');
     const listaProdutosItens = [...document.querySelectorAll('.products-list li')];
     const divDescricao = document.querySelector('.products-description-bg');
-    const spanDescricao = document.querySelector('#descricaoId');
-    const spanCusto = document.querySelector('#custo');
-    const spanTipo = document.querySelector('#tipo');
-    const spanData = document.querySelector('#dataCadastroProduto');
-    const spanNome = document.querySelector('#nomeId');
-    const spanID = document.querySelector('#produtoId');
+    const spanDescricao = document.querySelector('#descricaoId span');
+    const spanCusto = document.querySelector('#custo span');
+    const spanTipo = document.querySelector('#tipo span');
+    const spanData = document.querySelector('#dataCadastroProduto p');
+    const spanNome = document.querySelector('#nomeId span');
+    const spanID = document.querySelector('#produtoId p');
     console.log(getEditando())
     
     if(listaProdutos) {
@@ -37,13 +37,25 @@ export default function initSelectingProduct(){
             divDescricao.classList.add("divAtivoDesc");
             selecionarProduto(li);
         }
+
+        const itensDescricao = [...document.querySelectorAll('.products-description-item')];
+
+        itensDescricao.forEach(item => {
+            const span = item.querySelector('span');
+            const input = item.querySelector('input');
+
+            if(span){
+                span.hidden = false;
+                input.hidden = true;
+            }
+            
+        });
         }
     };
 
 
 
         function selecionarProduto(element){
-            console.log(element)
             const dadosProdutos = JSON.parse(localStorage.getItem('dadosProdutos'));
 
             const idItem = element.dataset.id;

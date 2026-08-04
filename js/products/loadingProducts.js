@@ -21,7 +21,7 @@ export default function initLoadingProducts() {
             listaProdutos.appendChild(li);
 
             } else {
-                console.log('teste')
+                console.log('Falhou')
             }
         })
     } else {
