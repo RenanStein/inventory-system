@@ -1,4 +1,6 @@
 import { setEditando } from './state.js';
+import initLoadingProducts from './loadingProducts.js';
+
 
 export default function initEditProduct() {
     const itensDescricao = [...document.querySelectorAll('.products-description-item')];
@@ -30,9 +32,10 @@ export default function initEditProduct() {
 
     const buttonConfirm = document.querySelector('#buttonDescConfirm');
     const buttonCancel = document.querySelector('#buttonDescCance');
-
+    if(buttonConfirm){
     buttonConfirm.addEventListener('click', confirmarAlteracao);
     buttonCancel.addEventListener('click', cancelarAlteracao);
+    }
 
     function confirmarAlteracao() {
 
@@ -80,13 +83,14 @@ export default function initEditProduct() {
              input.hidden = true;
          });
 
-        console.log(produto)
         localStorage.setItem(
             'dadosProdutos',
             JSON.stringify(produto)
         );
 
         divButtons.style.display = 'none';
+        
+        initLoadingProducts();
         setEditando(false);
     }
 

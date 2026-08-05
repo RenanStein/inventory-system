@@ -9,6 +9,7 @@ export default function initLoadingProducts() {
     const paragNotExist = document.querySelector('.products-not-exists');
 
     if(dadosProdutos){
+        listaProdutos.innerHTML = '';
         dadosProdutos.forEach(e => {
             if(dadosUser.usuario === e.usuario) {
 

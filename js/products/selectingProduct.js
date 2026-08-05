@@ -14,7 +14,7 @@ export default function initSelectingProduct(){
     
     if(listaProdutos) {
        listaProdutos.addEventListener("click", ativarSelecao);
-       function ativarSelecao() {
+       function ativarSelecao(event) {
         if(getEditando() == false){
         // Procura o <li> mais próximo do elemento clicado
         const li = event.target.closest("li");
@@ -29,13 +29,18 @@ export default function initSelectingProduct(){
             item.classList.remove("ativoDesc");
         });
 
+        if(divDescricao)
         divDescricao.classList.remove("divAtivoDesc");
 
         // Se o item não estava ativo, ativa
         if (!ativo) {
             li.classList.add("ativoDesc");
+            if(divDescricao)
             divDescricao.classList.add("divAtivoDesc");
+
+            if(li){
             selecionarProduto(li);
+            }
         }
 
         const itensDescricao = [...document.querySelectorAll('.products-description-item')];
@@ -57,6 +62,7 @@ export default function initSelectingProduct(){
 
         function selecionarProduto(element){
             const dadosProdutos = JSON.parse(localStorage.getItem('dadosProdutos'));
+            const itensDescricao = [...document.querySelectorAll('.products-description-item')];
 
             const idItem = element.dataset.id;
 
@@ -64,13 +70,13 @@ export default function initSelectingProduct(){
 
             if (!produto) return;
 
-            spanDescricao.innerText = produto.descricao;
-            spanCusto.innerText = produto.custo;
-            spanTipo.innerText = produto.tipo;
-            spanData.innerText = produto.data_hora_formatada;
-            spanNome.innerText = produto.nome;
-            spanID.innerText = produto.id;
-        }
+            if (spanDescricao) spanDescricao.innerText = produto.descricao;
+            if (spanCusto) spanCusto.innerText = produto.custo;
+            if (spanTipo) spanTipo.innerText = produto.tipo;
+            if (spanData) spanData.innerText = produto.data_hora_formatada;
+            if (spanNome) spanNome.innerText = produto.nome;
+            if (spanID) spanID.innerText = produto.id;
+        }   
 
 
     }
