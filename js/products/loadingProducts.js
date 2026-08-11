@@ -9,6 +9,7 @@ export default function initLoadingProducts() {
     const paragNotExist = document.querySelector('.products-not-exists');
 
     if(dadosProdutos){
+        if(listaProdutos){
         listaProdutos.innerHTML = '';
         dadosProdutos.forEach(e => {
             if(dadosUser.usuario === e.usuario) {
@@ -25,6 +26,7 @@ export default function initLoadingProducts() {
                 console.log('Falhou')
             }
         })
+    }
     } else {
         divListaProdutos.style.display = 'none';
         divProdutoDescricao.style.display = 'none';
