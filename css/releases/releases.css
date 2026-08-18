@@ -48,3 +48,55 @@
 .releases-action button:hover {
     background-color: rgb(2, 2, 121);
 }
+
+.modal-releases  {
+    display: block;
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.3);
+    backdrop-filter: blur(8px);
+    align-content: center;
+    justify-items: center;
+    font-family: "Roboto", sans-serif;
+}
+
+.modal-releases-container {
+    background-color: white;
+    width: 400px;
+    padding: 40px;
+    border-radius: 10px;
+    display: grid;
+    grid-template-columns: 1fr;
+}
+
+#titulo_lancamento {
+    margin-bottom: 20px;
+    color: black;
+}
+
+.modal-releases-container input, #produtos_opcoes {
+    display: block;
+    color: black;
+    background-color: rgba(185, 185, 185, 0.507);
+    border-radius: 10px;
+    margin-top: 5px;
+    padding: 15px;
+    margin-bottom: 20px;
+    width: 100%;
+}
+
+#produtos_opcoes {
+    appearance: none;
+}
+
+.modal-releases-container label, .modal-releases-container span {
+    font-size: 1rem;
+    color: black;
+}
+
+.avisoErroLancamento {
+    display: none;
+    margin-bottom: 20px;
+    color: red !important;
+    font-weight: 600;
+}
