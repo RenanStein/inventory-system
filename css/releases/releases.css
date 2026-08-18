@@ -30,3 +30,21 @@
     border-left: 0px solid black;
     padding-left: 0px;
 }
+
+.releases-action {
+    display: flex;
+    justify-content: space-between;
+    align-content: center;
+}
+
+.releases-action:nth-child(1){
+    margin-bottom: 20px;
+}
+
+.releases-action button {
+    background-color: rgb(0, 0, 192);
+}
+
+.releases-action button:hover {
+    background-color: rgb(2, 2, 121);
+}

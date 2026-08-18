@@ -26,14 +26,30 @@
         <section class="releases container">
             <div class="releases-action">
                 <h2>Implantação</h2>
-                <button data-estoque="add">Criar implantação</button>
+                <button data-estoque="add" class="button-geral">Criar implantação</button>
             </div>
             <div class="releases-action">
                 <h2>Requisição</h2>
-                <button data-estoque="rem"">Criar requisição</button>
+                <button data-estoque="rem" class="button-geral">Criar requisição</button>
             </div>
         </section>
 
+        <div class="modal-releases">
+            <div>
+                <h3 id="titulo_lancamento">Implantacao</h3>
+
+                <span>Produto</span>
+                <select name="produtos" id="produtos_opcoes">
+                    <option value="teste">teste</option>
+                </select>
+
+                <label for="">Quantidade</label>
+                <input type="text" placeholder="Quantidade">
+                
+                <label for="" class="custo">Custo</label>
+                <input type="text" class="custo-input" placeholder="Custo">
+            </div>
+        </div>
     </main>
 
     <script type="module" src="js/script.js"></script>

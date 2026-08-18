@@ -1,6 +1,7 @@
 /* global */
 @import 'global/global.css';
 @import 'global/header.css';
+@import 'global/components.css';
 
 /* pagina de login */
 @import 'login/login.css';
