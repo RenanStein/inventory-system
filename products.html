@@ -38,7 +38,7 @@
                     <p>Nome do Produto</p>
                     <div class="products-description-item" id="nomeId">
                         <span data-produto="nome">Maça</span>
-                        <input type="text" class="products-description-input">
+                        <input type="text" class="products-description-input" id="nomeP" name="nomeP">
                     </div>
                     <p>ID do produto</p>
                     <div class="products-description-item-fixo" id="produtoId">
@@ -47,17 +47,17 @@
                     <p>Descrição do Produto</p>
                     <div class="products-description-item" id="descricaoId">
                         <span data-produto="descricao">Lorem ipsum dolor sit amet consectetur adipisicing elit. Deleniti aliquid inventore pariatur sed impedit ad voluptates, magnam earum facere dolorem similique quae at voluptatum. Accusantium voluptatibus cumque fuga excepturi ipsum.</span>
-                        <input type="text" class="products-description-input" hidden>
+                        <input type="text" class="products-description-input" hidden id="descricaoP" name="descricaoP">
                     </div>
                     <p>Custo Médio</p>
                     <div class="products-description-item" id="custo">
                         <span data-produto="custo">22</span>
-                        <input type="text" class="products-description-input" hidden>
+                        <input type="text" class="products-description-input" hidden id="custoP" name="custoP">
                     </div>
                     <p>Tipo</p>
                     <div class="products-description-item" id="tipo">
                         <span data-produto="tipo">Geral</span>  
-                        <input type="text" class="products-description-input" hidden>
+                        <input type="text" class="products-description-input" hidden id="tipoP" name="tipoP">
                     </div>
                     
                     <p>Data Cadastro</p>
@@ -77,20 +77,20 @@
             <div class="products-modal-container">
                 <h3>Cadastrar novo produto</h3>
             <div class="products-modal-item">
-                <label for="nome">Nome do produto</label>
-                <input type="text" name="nome" placeholder="Produto" required id="nomeProduto">
+                <label for="nomeProduto">Nome do produto</label>
+                <input type="text" name="nomeProduto" placeholder="Produto" required id="nomeProduto">
             </div>
             <div class="products-modal-item">
-                <label for="descricao">Descrição do Produto</label>
-                <input type="text" name="descricao" placeholder="Descrição do produto" required id="descricaoProduto">
+                <label for="descricaoProduto">Descrição do Produto</label>
+                <input type="text" name="descricaoProduto" placeholder="Descrição do produto" required id="descricaoProduto">
             </div>
             <div class="products-modal-item">
-                <label for="custo">Custo Médio</label>
-                <input type="number" name="custo" placeholder="Custo" required id="custoProduto">
+                <label for="custoProduto">Custo Médio</label>
+                <input type="number" name="custoProduto" placeholder="Custo" required id="custoProduto">
             </div>
             <div class="products-modal-item">
-                <label for="tipo">Tipo</label>
-                <input type="text" name="tipo" placeholder="Tipo" required id="tipoProduto">
+                <label for="tipoProduto">Tipo</label>
+                <input type="text" name="tipoProduto" placeholder="Tipo" required id="tipoProduto">
             </div>
             <button class="products-modal-confir button-geral" id="modalConfirm">Confirmar</button>
             <button class="products-modal-cance button-geral" id="modalCance">Cancelar</button>

@@ -50,7 +50,7 @@
 }
 
 .modal-releases  {
-    display: block;
+    display: none;
     position: fixed;
     inset: 0;
     background: rgba(0, 0, 0, 0.3);
@@ -87,6 +87,11 @@
 
 #produtos_opcoes {
     appearance: none;
+}
+
+option {
+    background-color: rgb(0, 0, 192);
+    color: white;
 }
 
 .modal-releases-container label, .modal-releases-container span {

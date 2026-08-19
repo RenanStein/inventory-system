@@ -8,6 +8,7 @@ export default function initLoadingProducts() {
     const divProdutoDescricao = document.querySelector('.products-description-bg');
     const paragNotExist = document.querySelector('.products-not-exists');
 
+    if (!listaProdutos) return;
     if(dadosProdutos){
         if(listaProdutos){
         listaProdutos.innerHTML = '';

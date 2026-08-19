@@ -6,6 +6,7 @@ import initCreateProducts from './products/createProducts.js';
 import initLoadingProducts from './products/loadingProducts.js';
 import initSelectingProduct from './products/selectingProduct.js';
 import initEditProduct from './products/editProduct.js';
+import initReleases from './releases/releases.js';
 
 initLogin();
 initErr();
@@ -15,3 +16,4 @@ initCreateProducts();
 initLoadingProducts();
 initSelectingProduct();
 initEditProduct();
+initReleases();

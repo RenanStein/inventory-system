@@ -40,19 +40,18 @@
 
                 <span>Produto</span>
                 <select name="produtos" id="produtos_opcoes">
-                    <option value="teste">teste</option>
                 </select>
 
-                <label for="">Quantidade</label>
-                <input type="text" placeholder="Quantidade">
+                <label for="quantidade_lancamento">Quantidade</label>
+                <input type="number" placeholder="Quantidade" id="quantidade_lancamento" name="quantidade_lancamento">
                 
-                <label for="" class="custo">Custo</label>
-                <input type="text" class="custo-input" placeholder="Custo" data-lancamento="true">
+                <label for="custo_lancamento" class="custo">Custo</label>
+                <input type="number" class="custo-input" placeholder="Custo" id="custo_lancamento" name="custo_lancamento">
 
                     <span class="avisoErroLancamento">Teste teste</span>
                 <div>
                     <button class="products-modal-confir button-geral" id="confirLancamento">Confirmar</button>
-                    <button class="products-modal-cance button-geral" id="confirLancamento">Cancelar</button>
+                    <button class="products-modal-cance button-geral" id="cancelLancamento">Cancelar</button>
                 </div>
             </div>
         </div>

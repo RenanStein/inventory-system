@@ -5,6 +5,7 @@ export default class Produto {
             this.descricao = descricao;
             this.custo = custo;
             this.tipo = tipo;
+            this.estoque_disponivel = 0;
         }
 
         criarID(produtos){
