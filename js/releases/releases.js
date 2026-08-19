@@ -2,6 +2,8 @@ import initCalcularEstoque from "./calcularEstoque.js";
 
 export default function initReleases() {
     const containerLancamento = document.querySelector('.modal-releases');
+    const quantidadeLancamento = document.querySelector('#quantidade_lancamento');
+    const custoLancamento = document.querySelector('#custo_lancamento');
     const avisoErro = document.querySelector('.avisoErroLancamento');
 
     let tipoLancamento = '';
@@ -26,16 +28,18 @@ function criarLancamento(atributo){
 
     containerLancamento.style.display = 'block';
     avisoErro.style.display = 'none';
+    quantidadeLancamento.value = "";
+    custoLancamento.value = "";
 
 
     carregarProdutos();
     
     if (atributo === 'add') {
         tituloLancamento.innerText = 'Implantação';
+        custoLancamento.readOnly = false;
     } else if (atributo === 'rem') {
         tituloLancamento.innerText = 'Requisição';
         custoLancamento.readOnly = true;
-        custoLancamento.style.backgroundColor = 'rgba(185, 185, 185, 0.30)'
     }
 }
 
@@ -69,24 +73,35 @@ function cancelarLancamento() {
 function confirmarLancamento() {
     const dadosProdutos = JSON.parse(localStorage.getItem('dadosProdutos'));
     const select = Number(document.querySelector('#produtos_opcoes').value);
-    const quantidadeLancamento = document.querySelector('#quantidade_lancamento');
-    const custoLancamento = document.querySelector('#custo_lancamento');
+    let qtdLancamentoTratada = Number(quantidadeLancamento.value)
+    let custoLancamentoTratado = Number(custoLancamento.value);
 
     if (dadosProdutos != null) {
         const produto = dadosProdutos.find(produto => produto.id === select);
 
-        if (produto != undefined && quantidadeLancamento.value != "" || custoLancamento.value != "") {
-            let qtdLancamentoTratada = Number(quantidadeLancamento.value)
+        if (produto == undefined) {
+            avisoErro.innerText = 'Deve ser selecionado um produto!';
+            avisoErro.style.display = 'block';
+        } else if (qtdLancamentoTratada == "") {
+            avisoErro.innerText = 'Deve ser informada uma quantidade!';
+            avisoErro.style.display = 'block';
+        } else if (custoLancamentoTratado == "") {
+            avisoErro.innerText = 'Deve ser informada um custo!';
+            avisoErro.style.display = 'block';
+        } else if (qtdLancamentoTratada <= 0) {
+            avisoErro.innerText = 'A quantidade deve ser maior que zero!';
+            avisoErro.style.display = 'block';
+        } else if (custoLancamentoTratado <= 0) {
+            avisoErro.innerText = 'O custo deve ser maior que zero!';
+            avisoErro.style.display = 'block';
+        } else {
             const qtdCalculada = initCalcularEstoque(tipoLancamento, produto, qtdLancamentoTratada, custoLancamento);
             produto.estoque_disponivel = qtdCalculada;
             localStorage.setItem(
                 'dadosProdutos',
             JSON.stringify(dadosProdutos)
             );
-        containerLancamento.style.display = 'none';
-        } else {
-            avisoErro.innerText = 'Preencha todos os campos!';
-            avisoErro.style.display = 'block';
+            containerLancamento.style.display = 'none';
         }
     } else {
         avisoErro.innerText = 'Preencha todos os campos!';
