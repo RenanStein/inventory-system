@@ -82,7 +82,8 @@ function confirmarLancamento() {
             localStorage.setItem(
                 'dadosProdutos',
             JSON.stringify(dadosProdutos)
-        );
+            );
+        containerLancamento.style.display = 'none';
         } else {
             avisoErro.innerText = 'Preencha todos os campos!';
             avisoErro.style.display = 'block';
