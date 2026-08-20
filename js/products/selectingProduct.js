@@ -1,4 +1,6 @@
 import { getEditando } from './state.js';
+import initInventory from '../inventory/inventory.js';
+
 
 export default function initSelectingProduct(){
     const listaProdutos = document.querySelector('.products-list');

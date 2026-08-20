@@ -85,13 +85,13 @@ function confirmarLancamento() {
         } else if (qtdLancamentoTratada == "") {
             avisoErro.innerText = 'Deve ser informada uma quantidade!';
             avisoErro.style.display = 'block';
-        } else if (custoLancamentoTratado == "") {
-            avisoErro.innerText = 'Deve ser informada um custo!';
-            avisoErro.style.display = 'block';
+        } else if (custoLancamentoTratado == "" && tipoLancamento == "add") {
+                avisoErro.innerText = 'Deve ser informada um custo!';
+                avisoErro.style.display = 'block';
         } else if (qtdLancamentoTratada <= 0) {
             avisoErro.innerText = 'A quantidade deve ser maior que zero!';
             avisoErro.style.display = 'block';
-        } else if (custoLancamentoTratado <= 0) {
+        } else if (custoLancamentoTratado <= 0 && tipoLancamento == "add") {
             avisoErro.innerText = 'O custo deve ser maior que zero!';
             avisoErro.style.display = 'block';
         } else {

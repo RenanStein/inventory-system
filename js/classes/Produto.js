@@ -42,5 +42,24 @@ export default class Produto {
             this.data_hora_cadastro = dataCadastro;
             this.data_hora_formatada = dataFormatada;
         }
+        logReleases(idSet, frase){
+            const dadosLocalStorage = JSON.parse(localStorage.getItem('dadosLancamentos')) || [];
+                console.log(dadosLocalStorage)
+
+            if(dadosLocalStorage){
+            //const dadosLog = [];
+            let log = {
+                id: idSet,
+                log: frase
+            }
+
+            dadosLocalStorage.push(log)
+
+            localStorage.setItem(
+                "dadosLancamentos",
+            JSON.stringify(dadosLocalStorage)
+            );
+        }
+        }
             
     }

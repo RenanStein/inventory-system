@@ -7,6 +7,7 @@ import initLoadingProducts from './products/loadingProducts.js';
 import initSelectingProduct from './products/selectingProduct.js';
 import initEditProduct from './products/editProduct.js';
 import initReleases from './releases/releases.js';
+import initInventory from './inventory/inventory.js';
 
 initLogin();
 initErr();
@@ -17,3 +18,4 @@ initLoadingProducts();
 initSelectingProduct();
 initEditProduct();
 initReleases();
+initInventory();

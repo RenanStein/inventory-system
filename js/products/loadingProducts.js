@@ -24,7 +24,9 @@ export default function initLoadingProducts() {
             listaProdutos.appendChild(li);
 
             } else {
-                console.log('Falhou')
+                divListaProdutos.style.display = 'none';
+                divProdutoDescricao.style.display = 'none';
+                paragNotExist.style.display = 'block';
             }
         })
     }
