@@ -46,9 +46,6 @@ export default function initCreateProducts() {
 
             renderizarProduto(novoProduto);
 
-            let frase = `Produto criado: ID "${novoProduto.id}", com nome "${novoProduto.nome}", com custo "${novoProduto.custo}", do tipo "${novoProduto.tipo}" e sua descrição é "${novoProduto.descricao}".`
-
-            novoProduto.logReleases(novoProduto.id, frase);
             modalCreate.style.display = 'none';
         } else {
             window.alert("Preencha todos os campos para cadastrar um produto.")
